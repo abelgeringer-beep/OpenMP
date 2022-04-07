@@ -75,6 +75,7 @@ void MasodikOpenMP::Mandelbrot()
     // 2.437920 
 
     double start = omp_get_wtime();
+#pragma omp parallel for schedule(guided, 50)
     for (int row = 0; row < height; row++)
     {
         for (int col = 0; col < width; col++)
@@ -97,5 +98,5 @@ void MasodikOpenMP::Mandelbrot()
     }
     double stop = omp_get_wtime();
     printf("time: %.6f\n", (stop - start));
-    printf("%f", magnitude);
+    printf("%f", magnitude); // if you delete this, the for won't run, because you are not using anything from it
 }

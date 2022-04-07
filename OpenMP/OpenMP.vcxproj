@@ -145,11 +145,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ElsoOpenMP.cpp" />
+    <ClCompile Include="HarmadikOpenMP.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MasodikOpenMP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ElsoOpenMP.h" />
+    <ClInclude Include="HarmadikOpenMP.h" />
     <ClInclude Include="MasodikOpenMP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -24,12 +24,18 @@
     <ClCompile Include="MasodikOpenMP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HarmadikOpenMP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ElsoOpenMP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MasodikOpenMP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HarmadikOpenMP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
