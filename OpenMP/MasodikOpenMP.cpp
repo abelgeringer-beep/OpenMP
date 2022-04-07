@@ -3,7 +3,8 @@
 MasodikOpenMP::MasodikOpenMP()
 {
 	// SectionsTest();
-	ScopeTest();
+	// ScopeTest();
+	ScheduleTest();
 }
 
 void MasodikOpenMP::DummyCalcA()
@@ -45,4 +46,16 @@ void MasodikOpenMP::ScopeTest()
 		printf("value in thread: %.2f\n", value);
 	}
 	printf("value in main: %.2f\n", value);
+}
+
+void MasodikOpenMP::ScheduleTest()
+{
+	int N = 16;
+#pragma omp parallel num_threads(4)
+#pragma omp for schedule(guided, 3)
+	for (int t = 0; t < N; t++)
+	{
+		int id = omp_get_thread_num();
+		printf("id: %d\titeration: %d\n", id, t);
+	}
 }

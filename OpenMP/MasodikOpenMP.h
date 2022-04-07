@@ -14,5 +14,6 @@ public:
 	MasodikOpenMP();
 	void SectionsTest();
 	void ScopeTest();
+	void ScheduleTest();
 };
 
