@@ -4,7 +4,8 @@ MasodikOpenMP::MasodikOpenMP()
 {
 	// SectionsTest();
 	// ScopeTest();
-	ScheduleTest();
+	// ScheduleTest();
+    Mandelbrot();
 }
 
 void MasodikOpenMP::DummyCalcA()
@@ -32,7 +33,6 @@ void MasodikOpenMP::SectionsTest()
 
 #pragma omp section 
 			DummyCalcB();
-
 		}
 	}
 }
@@ -58,4 +58,44 @@ void MasodikOpenMP::ScheduleTest()
 		int id = omp_get_thread_num();
 		printf("id: %d\titeration: %d\n", id, t);
 	}
+}
+
+void MasodikOpenMP::Mandelbrot()
+{
+    int limit = 5000;
+    int width = 2200;
+    int height = 2200;
+    double scale = 4.0 / width;
+    double c_real = 0;
+    double c_imag = 0;
+    double z_real = 0;
+    double z_imag = 0;
+    double temp_real, temp_imag, magnitude;
+    int count;
+    // 2.437920 
+
+    double start = omp_get_wtime();
+    for (int row = 0; row < height; row++)
+    {
+        for (int col = 0; col < width; col++)
+        {
+            z_real = z_imag = 0;
+            c_real = col * scale - 2.0;
+            c_imag = (height - row + 1) * scale - 2.0;
+            count = 0;
+            do {
+                // Zn*Zn + c
+                temp_real = z_real * z_real - z_imag * z_imag + c_real;
+                temp_imag = 2 * z_real * z_imag + c_imag;
+                z_real = temp_real;
+                z_imag = temp_imag;
+                magnitude = z_real * z_real + z_imag * z_imag;
+                count++;
+            } while ((count < limit) && (magnitude < 4));
+            // generate colour from count and display 
+        }
+    }
+    double stop = omp_get_wtime();
+    printf("time: %.6f\n", (stop - start));
+    printf("%f", magnitude);
 }

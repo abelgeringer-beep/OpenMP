@@ -10,10 +10,12 @@ class MasodikOpenMP
 private:
 	void DummyCalcA();
 	void DummyCalcB();
+
 public:
 	MasodikOpenMP();
 	void SectionsTest();
 	void ScopeTest();
 	void ScheduleTest();
+	void Mandelbrot();
 };
 
